@@ -1,0 +1,32 @@
+[mysqld]
+port = 3306
+datadir=/var/lib/mysql
+socket=/var/lib/mysql/mysql.sock
+user=mysql
+log_error=/var/log/mysql/error.log
+symbolic-links=0
+binlog_format=ROW
+# MyISAM storage engine has only experimental support
+default_storage_engine=InnoDB
+# This is a recommended tuning variable for performance
+innodb_locks_unsafe_for_binlog=1
+wsrep_cluster_address=gcomm://
+#wsrep_sst_receive_address=192.168.33.15:4020
+#wsrep_node_incoming_address=192.168.33.15
+wsrep_node_address=192.168.33.15
+wsrep_slave_threads=2
+#wsrep_provider_options = "gmcast.listen_addr=tcp://192.168.33.15:4567"
+wsrep_node_name=db01
+wsrep_provider=/usr/lib64/libgalera_smm.so
+innodb_autoinc_lock_mode=2
+# SST method
+wsrep_sst_method=xtrabackup
+# Cluster name
+wsrep_cluster_name=GRP_Cluster
+# Authentication for SST method
+wsrep_sst_auth="sstuser:mdp"
+server-id = 1
+
+[mysqld_safe]
+log-error=/var/log/mysql/mysqld.log
+pid-file=/var/run/mysqld/mysqld.pid

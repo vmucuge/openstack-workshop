@@ -1,0 +1,38 @@
+CHANGELOG
+
+1.1.1
+=====
+
+NOTE: This version requires puppetlabs/apache 0.6.0, which is a backwards
+incompatible release. If you are using that module elsewhere then you'll need
+to resolve the upgrade for apache first.
+
+  * Manage /var/log/mrepo.log so that mrepo user can write to it while running
+  * Remove dependency cycle when using mrepo with apache
+  * Don't use `undef` for rhn username or password
+
+
+1.1.0
+=====
+
+  * Correct invalid Modulefile dependency
+  * Changes to conform to style guide.
+  * Allow tuning of email recipient
+  * Add in mrepo::exports class
+  * Add in support for creating NFS shares of mrepo disks. This is primarily
+    needed for mirroring and building on SLES.
+
+1.0.0
+=====
+
+This is a backwards incompatible release.
+
+  * Split out mirroring for RHN and NCC repositories, since they have
+    nontrivial amounts of logic needed to authenticate to the mirror source.
+  * Add hour parameter to mrepo::repo define to permit staggering
+    synchronization time.
+  * Add mrepo::iso define. This will copy ISOs from to the mrepo host for
+    mirroring from ISOs. This adds a dependency on nanliu-staging
+  * Clean up repository name munging by extracting the logic into a Puppet
+    function.
+  * Respect mrepo docroot for apache
