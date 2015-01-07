@@ -35,10 +35,6 @@ node 'repo.test.vm' {
     ensure  => 'latest',
   } ->
 
-	package { 'openstack-packstack':
-	  ensure  => 'latest'
-	} ->
-
   package { 'yum-utils' :
     ensure  => 'installed',
   } ->
@@ -46,10 +42,5 @@ node 'repo.test.vm' {
   package { 'repoview' :
     ensure  => 'latest',
   }
-
-  #exec { 'packstack-install':
-  #  command => 'sudo packstack --answer-file=/vagrant/packstack_answers.txt',
-  #  path    => "/usr/local/bin/:/bin/:/usr/sbin:/sbin",
-  #}
 
 } 

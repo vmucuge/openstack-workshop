@@ -1,253 +1,113 @@
 [general]
-
-# Path to a Public key to install on servers. If a usable key has not
-# been installed on the remote servers the user will be prompted for a
-# password and this key will be installed so the password will not be
-# required again
 CONFIG_SSH_KEY=.ssh/id_rsa.pub
-
-# Set to 'y' if you would like Packstack to install MARIADB
 CONFIG_MARIADB_INSTALL=y
-
-# Set to 'y' if you would like Packstack to install OpenStack Image
-# Service (Glance)
 CONFIG_GLANCE_INSTALL=y
-
-# Set to 'y' if you would like Packstack to install OpenStack Block
-# Storage (Cinder)
 CONFIG_CINDER_INSTALL=y
-
-# Set to 'y' if you would like Packstack to install OpenStack Compute
-# (Nova)
 CONFIG_NOVA_INSTALL=y
-
-# Set to 'y' if you would like Packstack to install OpenStack
-# Networking (Neutron). Otherwise Nova Network will be used.
 CONFIG_NEUTRON_INSTALL=y
-
-# Set to 'y' if you would like Packstack to install OpenStack
-# Dashboard (Horizon)
 CONFIG_HORIZON_INSTALL=y
-
-# Set to 'y' if you would like Packstack to install OpenStack Object
-# Storage (Swift)
-CONFIG_SWIFT_INSTALL=n
-
-# Set to 'y' if you would like Packstack to install OpenStack
-# Metering (Ceilometer)
-CONFIG_CEILOMETER_INSTALL=n
-
-# Set to 'y' if you would like Packstack to install OpenStack
-# Orchestration (Heat)
-CONFIG_HEAT_INSTALL=n
-
-# Set to 'y' if you would like Packstack to install the OpenStack
-# Client packages. An admin "rc" file will also be installed
 CONFIG_CLIENT_INSTALL=y
 
-# Comma separated list of NTP servers. Leave plain if Packstack
-# should not install ntpd on instances.
+# NEXT WORKSHOPS
+CONFIG_SWIFT_INSTALL=n
+CONFIG_CEILOMETER_INSTALL=n
+CONFIG_HEAT_INSTALL=n
+
+# NTP
 CONFIG_NTP_SERVERS=es.pool.ntp.org
 
-# Set to 'y' if you would like Packstack to install Nagios to monitor
-# OpenStack hosts
-CONFIG_NAGIOS_INSTALL=n
+# NAGIOS
+CONFIG_NAGIOS_INSTALL=y
 
-# Comma separated list of servers to be excluded from installation in
-# case you are running Packstack the second time with the same answer
-# file and don't want Packstack to touch these servers. Leave plain if
-# you don't need to exclude any server.
+# WHICH SERVER DO NO PROVISION ON NEXT RUN
 EXCLUDE_SERVERS=
 
-# Set to 'y' if you want to run OpenStack services in debug mode.
-# Otherwise set to 'n'.
+# DEBUG
 CONFIG_DEBUG_MODE=n
 
-# The IP address of the server on which to install OpenStack services
-# specific to controller role such as API servers, Horizon, etc.
+# CONTROLLER NODE
 CONFIG_CONTROLLER_HOST=192.168.33.20
 
-# The list of IP addresses of the server on which to install the Nova
-# compute service
+# COMPUTE NODE
 CONFIG_COMPUTE_HOSTS=192.168.33.21
 
-# The list of IP addresses of the server on which to install the
-# network service such as Nova network or Neutron
+# NETWORKING NODE
 CONFIG_NETWORK_HOSTS=192.168.33.22
 
-# Set to 'y' if you want to use VMware vCenter as hypervisor and
-# storage. Otherwise set to 'n'.
-CONFIG_VMWARE_BACKEND=n
-
-# The IP address of the VMware vCenter server
-CONFIG_VCENTER_HOST=
-
-# The username to authenticate to VMware vCenter server
-CONFIG_VCENTER_USER=
-
-# The password to authenticate to VMware vCenter server
-CONFIG_VCENTER_PASSWORD=
-
-# The name of the vCenter cluster
-CONFIG_VCENTER_CLUSTER_NAME=
-
-# To subscribe each server to EPEL enter "y"
+# EPEL ( IF USE HERE DO NOT CONFIGURE VIA RPM or PUPPET
 CONFIG_USE_EPEL=y
 
-# A comma separated list of URLs to any additional yum repositories
-# to install
-CONFIG_REPO=
-
-# To subscribe each server with Red Hat subscription manager, include
-# this with CONFIG_RH_PW
-CONFIG_RH_USER=
-
-# To subscribe each server with Red Hat subscription manager, include
-# this with CONFIG_RH_USER
-CONFIG_RH_PW=
-
-# To enable RHEL optional repos use value "y"
-CONFIG_RH_OPTIONAL=y
-
-# To subscribe each server with RHN Satellite,fill Satellite's URL
-# here. Note that either satellite's username/password or activation
-# key has to be provided
-CONFIG_SATELLITE_URL=
-
-# Username to access RHN Satellite
-CONFIG_SATELLITE_USER=
-
-# Password to access RHN Satellite
-CONFIG_SATELLITE_PW=
-
-# Activation key for subscription to RHN Satellite
-CONFIG_SATELLITE_AKEY=
-
-# Specify a path or URL to a SSL CA certificate to use
-CONFIG_SATELLITE_CACERT=
-
-# If required specify the profile name that should be used as an
-# identifier for the system in RHN Satellite
-CONFIG_SATELLITE_PROFILE=
-
-# Comma separated list of flags passed to rhnreg_ks. Valid flags are:
-# novirtinfo, norhnsd, nopackages
-CONFIG_SATELLITE_FLAGS=
-
-# Specify a HTTP proxy to use with RHN Satellite
-CONFIG_SATELLITE_PROXY=
-
-# Specify a username to use with an authenticated HTTP proxy
-CONFIG_SATELLITE_PROXY_USER=
-
-# Specify a password to use with an authenticated HTTP proxy.
-CONFIG_SATELLITE_PROXY_PW=
-
-# Set the AMQP service backend. Allowed values are: qpid, rabbitmq
+# AMQP: qpid, rabbitmq
 CONFIG_AMQP_BACKEND=rabbitmq
 
-# The IP address of the server on which to install the AMQP service
+# AMQP SERVER
 CONFIG_AMQP_HOST=192.168.33.20
 
-# Enable SSL for the AMQP service
-CONFIG_AMQP_ENABLE_SSL=n
-
-# Enable Authentication for the AMQP service
-CONFIG_AMQP_ENABLE_AUTH=n
-
-# The password for the NSS certificate database of the AMQP service
-CONFIG_AMQP_NSS_CERTDB_PW=a6ca90e493da451486a0e17e0cc7c8f5
-
-# The port in which the AMQP service listens to SSL connections
-CONFIG_AMQP_SSL_PORT=5671
-
-# The filename of the certificate that the AMQP service is going to
-# use
-CONFIG_AMQP_SSL_CERT_FILE=/etc/pki/tls/certs/amqp_selfcert.pem
-
-# The filename of the private key that the AMQP service is going to
-# use
-CONFIG_AMQP_SSL_KEY_FILE=/etc/pki/tls/private/amqp_selfkey.pem
-
-# Auto Generates self signed SSL certificate and key
-CONFIG_AMQP_SSL_SELF_SIGNED=y
-
-# User for amqp authentication
+# AMQP USER
 CONFIG_AMQP_AUTH_USER=amqp_user
 
-# Password for user authentication
+# AMQP PASSWD
 CONFIG_AMQP_AUTH_PASSWORD=amqp_pass
 
-# The IP address of the server on which to install MARIADB or IP
-# address of DB server to use if MARIADB installation was not selected
+# Enable Authentication for the AMQP service
+CONFIG_AMQP_ENABLE_AUTH=y
+
+# MARIADB SERVER
 CONFIG_MARIADB_HOST=192.168.33.20
 
-# Username for the MARIADB admin user
+# MARIADB admin user
 CONFIG_MARIADB_USER=root
 
-# Password for the MARIADB admin user
+# MARIADB admin user passwd
 CONFIG_MARIADB_PW=mysqlrootpasswd
 
-# The password to use for the Keystone to access DB
+# Keystone DB PASSWD
 CONFIG_KEYSTONE_DB_PW=keystonedbpasswd
 
 # The token to use for the Keystone service api
 CONFIG_KEYSTONE_ADMIN_TOKEN=e6f225dd1c954645bf22661a11b4500a
 
-# The password to use for the Keystone admin user
+# Keystone admin user PW
 CONFIG_KEYSTONE_ADMIN_PW=supersecretpasswd
 
-# The password to use for the Keystone demo user
+# Keystone demo user PW
 CONFIG_KEYSTONE_DEMO_PW=demosecretpasswd
 
 # Kestone token format. Use either UUID or PKI
 CONFIG_KEYSTONE_TOKEN_FORMAT=PKI
 
-# The password to use for the Glance to access DB
+# Glance to access DB PW
 CONFIG_GLANCE_DB_PW=glancedbpasswd
 
-# The password to use for the Glance to authenticate with Keystone
+# Glance Keystone PW
 CONFIG_GLANCE_KS_PW=glancekspasswd
 
-# The password to use for the Cinder to access DB
+# Cinder to access DB PW
 CONFIG_CINDER_DB_PW=cinderdbpasswd
 
-# The password to use for the Cinder to authenticate with Keystone
+# Cinder Keystone PW
 CONFIG_CINDER_KS_PW=cinderkspasswd
 
-# The Cinder backend to use, valid options are: lvm, gluster, nfs
+# Cinder backend: lvm, gluster, nfs
 CONFIG_CINDER_BACKEND=lvm
 
-# Create Cinder's volumes group. This should only be done for testing
-# on a proof-of-concept installation of Cinder. This will create a
-# file-backed volume group and is not suitable for production usage.
+# CREATE CINDER VOLUME LOOP
 CONFIG_CINDER_VOLUMES_CREATE=n
 
-# Cinder's volumes group size. Note that actual volume size will be
-# extended with 3% more space for VG metadata.
+# CINDER VG SIZE
 CONFIG_CINDER_VOLUMES_SIZE=20G
 
-# A single or comma separated list of gluster volume shares to mount,
-# eg: ip-address:/vol-name, domain:/vol-name
-CONFIG_CINDER_GLUSTER_MOUNTS=
-
-# A single or comma seprated list of NFS exports to mount, eg: ip-
-# address:/export-name
-CONFIG_CINDER_NFS_MOUNTS=
-
-# The password to use for the Nova to access DB
+# Nova to access DB PW
 CONFIG_NOVA_DB_PW=novadbpasswd
 
-# The password to use for the Nova to authenticate with Keystone
+# Nova Keystone PW
 CONFIG_NOVA_KS_PW=novakspasswd
 
-# The overcommitment ratio for virtual to physical CPUs. Set to 1.0
-# to disable CPU overcommitment
-CONFIG_NOVA_SCHED_CPU_ALLOC_RATIO=16.0
+# Overcommitment ratio CPU (DISABLED)
+CONFIG_NOVA_SCHED_CPU_ALLOC_RATIO=1.0
 
-# The overcommitment ratio for virtual to physical RAM. Set to 1.0 to
-# disable RAM overcommitment
-CONFIG_NOVA_SCHED_RAM_ALLOC_RATIO=1.5
+# Overcommitment ratio RAM. (DISABLED)
+CONFIG_NOVA_SCHED_RAM_ALLOC_RATIO=1.0
 
 # Private interface for Flat DHCP on the Nova compute servers
 CONFIG_NOVA_COMPUTE_PRIVIF=eth2
@@ -283,10 +143,10 @@ CONFIG_NOVA_NETWORK_NUMBER=5
 # Number of addresses in each private subnet
 CONFIG_NOVA_NETWORK_SIZE=255
 
-# The password to use for Neutron to authenticate with Keystone
+# Neutron Keystone PW
 CONFIG_NEUTRON_KS_PW=neutronkspasswd
 
-# The password to use for Neutron to access DB
+# Neutron to access DB PW
 CONFIG_NEUTRON_DB_PW=neutrondbpasswd
 
 # The name of the bridge that the Neutron L3 agent will use for
@@ -297,7 +157,7 @@ CONFIG_NEUTRON_L3_EXT_BRIDGE=br-ex
 CONFIG_NEUTRON_L2_PLUGIN=ml2
 
 # Neutron metadata agent password
-CONFIG_NEUTRON_METADATA_PW=neutron
+CONFIG_NEUTRON_METADATA_PW=neutronagentpasswd
 
 # Set to 'y' if you would like Packstack to install Neutron LBaaS
 CONFIG_LBAAS_INSTALL=n
