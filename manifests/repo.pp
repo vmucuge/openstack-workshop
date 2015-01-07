@@ -35,10 +35,6 @@ node 'repo.test.vm' {
     ensure  => 'latest',
   } ->
 
-  package { 'yum-utils' :
-    ensure  => 'installed',
-  } ->
-
   package { 'repoview' :
     ensure  => 'latest',
   }

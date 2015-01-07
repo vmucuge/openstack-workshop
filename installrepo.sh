@@ -1,9 +1,5 @@
 #!/bin/bash
 
-if [ ! -f /vagrant/rdo-release-icehouse-4.noarch.rpm ] ; then
-  wget https://repos.fedorapeople.org/repos/openstack/openstack-icehouse/rdo-release-icehouse-4.noarch.rpm -O /vagrant/rdo-release-icehouse-4.noarch.rpm
-fi
-#sudo yum install -y https://rdo.fedorapeople.org/rdo-release.rpm
 sudo yum install -y createrepo reposync httpd
 
 if [ ! -d "/var/www/repo" ] ; then
