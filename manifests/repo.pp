@@ -33,12 +33,7 @@ node 'repo.test.vm' {
 
   package { 'nano':
     ensure  => 'latest',
-  } ->
-
-	package { 'openstack-packstack':
-	  ensure  => 'latest'
-	} ->
-
+  } 
   package { 'yum-utils' :
     ensure  => 'installed',
   } ->

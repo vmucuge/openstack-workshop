@@ -3,7 +3,8 @@
 
 Vagrant.configure("2") do |config|
 
-  config.vm.box = "Centos64"
+  #config.vm.box = "centos65"
+  config.vm.box = "puppetlabs/centos-6.5-64-puppet"
   # config.vm.network :forwarded_port, guest: 80, host: 8080
   # config.vm.network :private_network, ip: "192.168.33.15"
   # config.vm.network :public_network
@@ -84,7 +85,7 @@ Vagrant.configure("2") do |config|
       unless File.exist?(cinder_volume)
         vb.customize ['createhd', '--filename', cinder_volume, '--size', 20 * 1024]
       end
-      vb.customize ['storageattach', :id, '--storagectl', 'SATA Controller', '--port', 1, '--device', 0, '--type', 'hdd', '--medium', cinder_volume]
+      vb.customize ['storageattach', :id, '--storagectl', 'IDE Controller', '--port', 1, '--device', 1, '--type', 'hdd', '--medium', cinder_volume]
     end
 
     controller01.vm.hostname = "rdo-controller01.test.vm"
