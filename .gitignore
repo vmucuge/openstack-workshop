@@ -1,6 +1,9 @@
+.idea/*
 .idea/
 .vagrant
-.vagrant/
+.vagrant/*
 tmp/
 keystonerc_admin
+.gitignore
+
 
