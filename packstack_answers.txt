@@ -40,6 +40,12 @@ CONFIG_USE_EPEL=y
 # AMQP: qpid, rabbitmq
 CONFIG_AMQP_BACKEND=rabbitmq
 
+# Enable SSL for the AMQP service
+CONFIG_AMQP_ENABLE_SSL=n
+
+# Enable Authentication for the AMQP service
+CONFIG_AMQP_ENABLE_AUTH=n
+
 # AMQP SERVER
 CONFIG_AMQP_HOST=192.168.33.20
 

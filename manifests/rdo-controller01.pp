@@ -24,6 +24,13 @@ node 'rdo-controller01.test.vm' {
     gpgcheck => '0',
   } ->
 
+  yumrepo { 'splunk' :
+    descr    => 'Splunk Repo Local',
+    baseurl  => 'http://192.168.33.33/splunk/',
+    enabled  => '1',
+    gpgcheck => '0',
+  } ->
+
   yumrepo { 'epel-erlang' :
     descr    => 'Erlang/OTP R14B',
     baseurl  => 'http://packages.erlang-solutions.com/rpm/centos/6/$basearch/',
@@ -51,5 +58,12 @@ node 'rdo-controller01.test.vm' {
   #  command => 'sudo packstack --answer-file=/vagrant/packstack_answers.txt',
   #  path    => "/usr/local/bin/:/bin/:/usr/sbin:/sbin",
   #}
+
+  class { 'splunk' :
+    install        => "forwarder", # This is the default, can be omitted
+    forward_server => [ "logs-splunk-01.test.vm:9997", ], # Must be an array; use host:port format
+    monitor_path   => [ "/var/log/nova/*.log", "/var/log/neutron/*.log", "/var/log/openvswitch/*.log", "/var/log/libvirt/*.log", "/var/log/messages", "/var/log/secure", "/var/log/cinder/*.log", "/var/log/glance/*.log", "/var/log/dashboard/*.log", "/var/log/keystone/*.log" ],
+    admin_password => "ssplunkk",
+  }
 
 }

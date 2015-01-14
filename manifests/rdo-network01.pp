@@ -24,6 +24,13 @@ node 'rdo-network01.test.vm' {
     gpgcheck => '0',
   } ->
 
+  yumrepo { 'splunk' :
+    descr    => 'Splunk Repo Local',
+    baseurl  => 'http://192.168.33.33/splunk/',
+    enabled  => '1',
+    gpgcheck => '0',
+  } ->
+
   yumrepo { 'epel-erlang' :
     descr    => 'Erlang/OTP R14B',
     baseurl  => 'http://packages.erlang-solutions.com/rpm/centos/6/$basearch/',
@@ -39,12 +46,19 @@ node 'rdo-network01.test.vm' {
     ensure  => 'latest',
   } ->
 
-  package { 'openstack-packstack':
-    ensure  => 'latest'
-  } ->
+  #package { 'openstack-packstack':
+  #  ensure  => 'latest'
+  #} ->
 
   package { 'java-1.7.0-openjdk':
     ensure  => 'latest',
+  }
+
+  class { 'splunk' :
+    install        => "forwarder",
+    forward_server => [ "logs-splunk-01.test.vm:9997", ],
+    monitor_path   => [ "/var/log/nova/*.log", "/var/log/neutron/*.log", "/var/log/openvswitch/*.log", "/var/log/messages", "/var/log/secure", ],
+    admin_password => "ssplunkk",
   }
 
 }

@@ -29,9 +29,11 @@ if [ "$HTTPD_STATUS" == 3 ] ; then
 fi
 
 sudo /sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT
+
 sudo echo "127.0.0.1 localhost" > /etc/hosts
 sudo echo "192.168.56.33 repo.test.vm" >> /etc/hosts
 sudo echo "192.168.33.33 repo.test.vm" >> /etc/hosts
+sudo echo "192.168.33.100 logs-splunk-01.test.vm" >> /etc/hosts
 sudo echo "nameserver 8.8.8.8" > /etc/resolv.conf
 
 sudo yum update ca-certificates -y
@@ -39,6 +41,8 @@ sudo yum install yum-utils -y
 
 if [ ! -f /vagrant/rdo-release-icehouse-4.noarch.rpm ] ; then
   wget https://repos.fedorapeople.org/repos/openstack/openstack-icehouse/rdo-release-icehouse-4.noarch.rpm -O /vagrant/rdo-release-icehouse-4.noarch.rpm
+  sudo rpm -Uvh /vagrant/rdo-release-icehouse-4.noarch.rpm
+  else
   sudo rpm -Uvh /vagrant/rdo-release-icehouse-4.noarch.rpm
 fi
 
