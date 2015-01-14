@@ -1,6 +1,0 @@
-.idea/
-.vagrant
-.vagrant/
-tmp/
-keystonerc_admin
-.gitignore
