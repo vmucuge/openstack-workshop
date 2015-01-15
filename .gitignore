@@ -5,5 +5,5 @@
 tmp/
 keystonerc_admin
 .gitignore
-
+cirros-0.3.3-x86_64-disk.img
 
