@@ -14,9 +14,14 @@ if [ ! -d /root/.ssh ] ; then
 fi
 
 sudo cp /vagrant/files/id_rsa* /root/.ssh/
+sudo chmod 600 /root/.ssh/id_rsa
+sudo chmod 644 /root/.ssh/id_rsa.pub
 sudo cat /root/.ssh/id_rsa.pub > /root/.ssh/authorized_keys
 
-sudo pvcreate /dev/sdb
-sudo vgcreate cinder-volumes /dev/sdb
+pvs |grep cinder-volumes > /dev/null
+if [ $? -ne 0 ];then
+  sudo pvcreate  /dev/sdb
+  sudo vgcreate cinder-volumes /dev/sdb
+fi
 
 packstack --answer-file=/vagrant/packstack_answers.txt
