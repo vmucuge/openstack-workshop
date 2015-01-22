@@ -40,6 +40,8 @@ sudo yum install yum-utils -y
 if [ ! -f /vagrant/rdo-release-icehouse-4.noarch.rpm ] ; then
   wget https://repos.fedorapeople.org/repos/openstack/openstack-icehouse/rdo-release-icehouse-4.noarch.rpm -O /vagrant/rdo-release-icehouse-4.noarch.rpm
   sudo rpm -Uvh /vagrant/rdo-release-icehouse-4.noarch.rpm
+else
+  sudo rpm -Uvh /vagrant/rdo-release-icehouse-4.noarch.rpm
 fi
 
 sudo reposync -r openstack-icehouse -p /var/www/repo/openstack-icehouse --norepopath -n
