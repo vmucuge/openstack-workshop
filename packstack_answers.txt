@@ -34,7 +34,7 @@ CONFIG_COMPUTE_HOSTS=192.168.33.21
 # NETWORKING NODE
 CONFIG_NETWORK_HOSTS=192.168.33.22
 
-# EPEL ( IF USE HERE DO NOT CONFIGURE VIA RPM or PUPPET
+# EPEL ( IF USE HERE DO NOT CONFIGURE VIA RPM or PUPPET )
 CONFIG_USE_EPEL=y
 
 # AMQP: qpid, rabbitmq
@@ -110,38 +110,38 @@ CONFIG_NOVA_SCHED_CPU_ALLOC_RATIO=1.0
 CONFIG_NOVA_SCHED_RAM_ALLOC_RATIO=1.0
 
 # Private interface for Flat DHCP on the Nova compute servers
-CONFIG_NOVA_COMPUTE_PRIVIF=eth2
+# CONFIG_NOVA_COMPUTE_PRIVIF=eth2
 
 # Nova network manager
-CONFIG_NOVA_NETWORK_MANAGER=nova.network.manager.FlatDHCPManager
+# CONFIG_NOVA_NETWORK_MANAGER=nova.network.manager.FlatDHCPManager
 
 # Public interface on the Nova network server
-CONFIG_NOVA_NETWORK_PUBIF=eth2
+# CONFIG_NOVA_NETWORK_PUBIF=eth2
 
 # Private interface for network manager on the Nova network server
-CONFIG_NOVA_NETWORK_PRIVIF=eth2
+# CONFIG_NOVA_NETWORK_PRIVIF=eth2
 
 # IP Range for network manager
-CONFIG_NOVA_NETWORK_FIXEDRANGE=
+# CONFIG_NOVA_NETWORK_FIXEDRANGE=
 
 # IP Range for Floating IP's
-CONFIG_NOVA_NETWORK_FLOATRANGE=
+# CONFIG_NOVA_NETWORK_FLOATRANGE=
 
 # Name of the default floating pool to which the specified floating
 # ranges are added to
-CONFIG_NOVA_NETWORK_DEFAULTFLOATINGPOOL=nova
+# CONFIG_NOVA_NETWORK_DEFAULTFLOATINGPOOL=nova
 
 # Automatically assign a floating IP to new instances
 CONFIG_NOVA_NETWORK_AUTOASSIGNFLOATINGIP=n
 
 # First VLAN for private networks
-CONFIG_NOVA_NETWORK_VLAN_START=100
+# CONFIG_NOVA_NETWORK_VLAN_START=100
 
 # Number of networks to support
-CONFIG_NOVA_NETWORK_NUMBER=5
+# CONFIG_NOVA_NETWORK_NUMBER=5
 
 # Number of addresses in each private subnet
-CONFIG_NOVA_NETWORK_SIZE=255
+# CONFIG_NOVA_NETWORK_SIZE=255
 
 # Neutron Keystone PW
 CONFIG_NEUTRON_KS_PW=neutronkspasswd
@@ -157,7 +157,7 @@ CONFIG_NEUTRON_L3_EXT_BRIDGE=br-ex
 CONFIG_NEUTRON_L2_PLUGIN=ml2
 
 # Neutron metadata agent password
-CONFIG_NEUTRON_METADATA_PW=neutronagentpasswd
+CONFIG_NEUTRON_METADATA_PW=neutronmetadatapasswd
 
 # Set to 'y' if you would like Packstack to install Neutron LBaaS
 CONFIG_LBAAS_INSTALL=n
