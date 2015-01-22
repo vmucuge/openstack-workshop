@@ -10,6 +10,7 @@ Vagrant.configure("2") do |config|
   config.vm.provider :virtualbox do |vb|
     vb.gui = false
     vb.customize ["modifyvm", :id, "--memory", "512"]
+    vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
   end
 
   config.vm.define :repo do |repo|
@@ -35,8 +36,9 @@ Vagrant.configure("2") do |config|
     vm_name = "rdo-compute01"
     config.vm.provider :virtualbox do |vb|
       vb.gui = true
-      vb.customize ["modifyvm", :id, "--memory", "2048", "--name", "#{vm_name}"]
-      vb.customize ["modifyvm", :id, "--cpus", "2", "--name", "#{vm_name}"]
+      vb.customize [ "modifyvm", :id, "--memory", "2048", "--name", "#{vm_name}"]
+      vb.customize [ "modifyvm", :id, "--cpus", "2", "--name", "#{vm_name}"]
+      vb.customize [ "modifyvm", :id, "--ioapic", "on", "--name", "#{vm_name}"]
     end
     compute01.vm.hostname = "rdo-compute01.test.vm"
     compute01.vm.network :private_network, ip: "192.168.56.21"
