@@ -2,7 +2,7 @@
 set -e
 
 echo "Running into vagrant"
-sudo yum localinstall -y /vagrant/rdo-release-icehouse-4.noarch.rpm
+# sudo yum localinstall -y /vagrant/rdo-release-icehouse-4.noarch.rpm
 
 sudo yum update -y
 
@@ -24,4 +24,4 @@ if [ $? -ne 0 ];then
   sudo vgcreate cinder-volumes /dev/sdb
 fi
 
-packstack --answer-file=/vagrant/packstack_answers.txt
+sudo packstack --answer-file=/vagrant/packstack_answers.txt
