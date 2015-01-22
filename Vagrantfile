@@ -36,6 +36,7 @@ Vagrant.configure("2") do |config|
     config.vm.provider :virtualbox do |vb|
       vb.gui = true
       vb.customize ["modifyvm", :id, "--memory", "2048", "--name", "#{vm_name}"]
+      vb.customize ["modifyvm", :id, "--cpus", "2", "--name", "#{vm_name}"]
     end
     compute01.vm.hostname = "rdo-compute01.test.vm"
     compute01.vm.network :private_network, ip: "192.168.56.21"
@@ -70,7 +71,7 @@ Vagrant.configure("2") do |config|
     end
 
   config.vm.define :controller01 do |controller01|
-    cinder_volume = "/tmp/cinder_volume.vdi"
+    cinder_volume = "/home/vgm/openstack/cinder_volume.vdi"
     vm_name = "rdo-controller01"
 
     config.vm.provider :virtualbox do |vb|
@@ -94,7 +95,7 @@ Vagrant.configure("2") do |config|
       puppet.module_path    = "modules"
       puppet.options        = "--verbose --debug --fileserverconfig=/vagrant/fileserver.conf"
     end
-    controller01.vm.provision "shell", path: "bootstrap.sh"
+     #controller01.vm.provision "shell", path: "bootstrap.sh"
 
   end
 
