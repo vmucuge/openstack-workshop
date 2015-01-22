@@ -1,6 +1,7 @@
 .idea/*
 .idea/
 .vagrant
+.vagrant/machines
 .vagrant/*
 tmp/
 keystonerc_admin
