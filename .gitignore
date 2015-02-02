@@ -6,4 +6,4 @@
 tmp/
 keystonerc_admin
 .gitignore
-
+coreos_production_openstack_image.img.bz2
