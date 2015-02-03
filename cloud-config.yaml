@@ -1,0 +1,17 @@
+cloud-config
+
+coreos:
+  etcd:
+    # generate a new token for each unique cluster from https://discovery.etcd.io/new
+    discovery: https://discovery.etcd.io/96345d5460ddc4fed86daa67f86533e5
+    addr: $private_ipv4:4001
+    peer-addr: $private_ipv4:7001
+  units:
+    - name: etcd.service
+      command: start
+    - name: fleet.service
+      command: start
+ssh_authorized_keys:
+  # include one or more SSH public keys
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCpyq7q+BILbNjdYOeEx2wM1Dbjcyy8u1ELUvHpupiC9hcE13lQyJkEarMcNSt6oIWuiP4UgkonEfOO+b3H9pAypYNOpLy6dZA5dm9tQtV9KQcbD45p0z4B9pEvjdHI5XiFp1SdetZKsbgW5hWeplfrX/4f0p7nxWiYyXlYH9GFhMY+ENWPYBfijg+a1aTGIqDg746rBWkqF+umWgPNETTPrdjU//4LNRAfgpm8TYeKQZLaYfgdWR+DJ1OT2U5T0WHBWZKKUliU3ql6h0ibwDte27JkusiT3dkCMUayOlYNMybJ+P1Uz87g9BZCCcdzMU9nC/eJKTInDgNOmum7Imix vgm@vgm-laptop
+  - ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAvWwyiSg/BNtxC8T/m3NqXXb3Bbjb8Gwjir6xw8QtiZcT/WkJgN8VXEOBLw6zyPhSrWBGKr5mHeaRgI5n8ygHgenQmXeYFLIploucUbUC5G7OZfMSf++O4qm2djSrN9DE8pYdtCpKNG4ioQYzvxbPPRBEN4S2uXrE9szh1wggHsKIMxl0BBthu6F31ZhxUqT+ZaysqkvyAGjzsYQk3+a6+58X5rIrtkwTPW7r4HJr42uSMMiF6SUk5Ef1XNA7/9qMkXvh+9ysNr9tWrCIkBIvAw4+Ry92M39/QMfEujXBPelXIoF/FVHJ3QD7y6hGGLe9ASNKkw0haDD2JS8ndjiscQ== root@rdo-node01.test.vm
