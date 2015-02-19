@@ -1,29 +1,41 @@
 - Install Vagrant
+
 DEBIAN/UBUNTU: https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.2_x86_64.deb
+
 WIN: https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.2.msi
+
 CENTOS/RH/FEDORA: https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.2_x86_64.rpm
 
 - Adjust memory for the instances, where
+
 vb.customize ["modifyvm", :id, "--memory", "2048", "--name", "#{vm_name}"]
+
 Use: 768/1024 for each VM
 
 - Change cinder_volume.vdi path, used for rdonode01 node
+
 cinder_volume = "/tmp/cinder_volume.vdi"
 
 
 - Spin up the VMs
+
 $ vagrant up rdonode02
+
 $ vagrant up rdonode01
 
 - Restart VMs (after upgrade)
+
 $ vagrant reload
 
 - SSH to rdonode01
+
 $ vagrant ssh rdonode01
 
 - Run commands
+
 $ sudo -i
-# packstack --answer-file=/vagrant/files/packstack-vagrant.txt
+
+ # packstack --answer-file=/vagrant/files/packstack-vagrant.txt
 
 !! Good Luck, if you finally see something like this:
 
