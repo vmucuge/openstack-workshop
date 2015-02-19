@@ -3,32 +3,32 @@ $ git clone git@github.com:vmucuge/openstack-workshop.git
 $ cd openstack-workshop
 $ git checkout 2nodes
 
-o si ya lo tenían clonado:
+o si ya lo tenían clonado :
 $ git pull
 
-- Actualizar Vagrant en sus sistemas para aprovechar las funcionalidades:
+- Actualizar Vagrant en sus sistemas para aprovechar las funcionalidades :
 DEBIAN/UBUNTU: https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.2_x86_64.deb
 WIN: https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.2.msi
 CENTOS/RH/FEDORA: https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.2_x86_64.rpm
 
-- Ajustar la memoria a ser usada por cada VM a lo que se adapte a sus recursos disponibles, en:
+- Ajustar la memoria a ser usada por cada VM a lo que se adapte a sus recursos disponibles, en :
 vb.customize ["modifyvm", :id, "--memory", "2048", "--name", "#{vm_name}"]
 Cambiar el 2048 por algo más ajustado por ejemplo 768/1024 en cada VM
 
-- Ajustar ubicación del fichero cinder_volume.vdi en la definición del rdonode01
+- Ajustar ubicación del fichero cinder_volume.vdi en la definición del rdonode01 :
 cinder_volume = "/tmp/cinder_volume.vdi"
 
 
-- Con eso a principio sería tener buenas conectividad y suerte, en la carpeta ejecutar:
+- Con eso a principio sería tener buenas conectividad y suerte, en la carpeta ejecutar :
 $ vagrant up rdonode02
 $ vagrant up rdonode01
 
-Si todo vá ok, deberían hacer un reinicio de las vms (usando Vagrant)
+- Reiniciar los hosts :
 $ vagrant reload
 
-- Después acceder al host rdonode01 con vagrant
+- Después acceder al host rdonode01 con vagrant :
 $ vagrant ssh rdonode01
 
-Ejecutar:
+-  Comandos :
 $ sudo -i
 # packstack --answer-file=/vagrant/files/packstack-vagrant.txt
