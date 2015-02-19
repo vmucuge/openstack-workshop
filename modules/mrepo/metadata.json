@@ -1,0 +1,61 @@
+{
+  "name": "puppetlabs-mrepo",
+  "version": "1.1.1",
+  "source": "git://github.com/puppetlabs/puppetlabs-mrepo",
+  "author": "puppetlabs",
+  "license": "Apache 2.0",
+  "summary": "Puppet mrepo management",
+  "description": "Puppet module to configure and manage mrepo mirrors. Mirrors can\nbe generated from distribution ISOs, existing RPM mirrors, the Redhat Network,\nor Yast Online Update.",
+  "project_page": "UNKNOWN",
+  "dependencies": [
+    {
+      "name": "puppetlabs/apache",
+      "version_requirement": ">= 0.6.0"
+    },
+    {
+      "name": "puppetlabs/vcsrepo",
+      "version_requirement": ">= 0.0.3"
+    },
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 0.1.6"
+    },
+    {
+      "name": "nanliu/staging",
+      "version_requirement": ">= 0.1.0"
+    }
+  ],
+  "types": [
+
+  ],
+  "checksums": {
+    "CHANGELOG": "817350051585b8aebce71a70de2b8f8c",
+    "LICENSE": "ce93ab014ac6d6d4f407b02490650806",
+    "Modulefile": "029d296ecb60511a1b6c81c3567864f0",
+    "README.markdown": "9b3b47392dc44d75c63776a4461d94bc",
+    "README.redhat.markdown": "e8056e34f24f5e4d33c66adb78806247",
+    "files/RHNS-CA-CERT": "07ff44fefd3b39ab0bc843148970bd99",
+    "files/export-mrepo": "38f2d9cacf94f302f54060ce317eb436",
+    "lib/puppet/parser/functions/mrepo_munge.rb": "e47d77ffac00b7e16e913c2c34fa0ca4",
+    "manifests/exports.pp": "3f5139e9f0b2f01b4ba17354f133da25",
+    "manifests/init.pp": "e6d18e3ec52afcd8681d1cd500df590c",
+    "manifests/iso.pp": "b83ae346312faaed28e503133f51e73f",
+    "manifests/package.pp": "2322101db4b678e52630e87f719278f3",
+    "manifests/params.pp": "46cf4f113d69d3e90235e129c50dac8a",
+    "manifests/repo/ncc.pp": "cdd28fef97c752089a59f41a2c24082b",
+    "manifests/repo/rhn.pp": "53147027adb8bb240835da758557c06f",
+    "manifests/repo.pp": "6a7885701bd86857b1c9933fb6c2e27c",
+    "manifests/rhn.pp": "13b5943e1f8dfb97c3f0490957629ff9",
+    "manifests/selinux.pp": "6d7387a6de2b6ae2d4855a75d4765d50",
+    "manifests/webservice.pp": "178451c7470ffdf5614d9a30d9770354",
+    "templates/apache.conf.erb": "ce2dae31269762df44d55f3d49f8f26e",
+    "templates/mrepo.conf.erb": "41a97cd2bbec8d1bbc5e24216e49b387",
+    "templates/repo.conf.erb": "7dc6afa667b3d07de08634a02f9ab8ec",
+    "tests/init.pp": "462d1f056e0705465cc792289c64c6cd",
+    "tests/package.pp": "fa526aad3ae3db07acdcc615b9d8894b",
+    "tests/repo.pp": "cf6a6e59ec92e814a6e5be825b3cd2b3",
+    "tests/rhn.pp": "1a2e10d330b48992e58891f69e459d63",
+    "tests/selinux.pp": "ef4cf54a40c061061d377380cb04459e",
+    "tests/webservice.pp": "7e3c23750bfd7480f059395b802e5f3c"
+  }
+}
