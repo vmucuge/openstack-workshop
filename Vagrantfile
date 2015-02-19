@@ -17,7 +17,7 @@ Vagrant.configure("2") do |config|
   config.vm.define :rdonode01 do |rdonode01|
 
     vm_name = "rdo-node01"
-    cinder_volume = "/home/vmucuge/openstack/cinder_volume.vdi"
+    cinder_volume = "/tmp/cinder_volume.vdi"
 
     config.vm.provider :virtualbox do |vb|
       vb.gui = false
