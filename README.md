@@ -40,6 +40,7 @@ $ sudo -i
 !! Good Luck, if you finally see something like this:
 
 Applying Puppet manifests                            [ DONE ]
+
 Finalizing                                           [ DONE ]
 
  **** Installation completed successfully ******
