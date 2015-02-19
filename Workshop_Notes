@@ -11,8 +11,7 @@ DEBIAN/UBUNTU: https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.2_x86_64.deb
 WIN: https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.2.msi
 CENTOS/RH/FEDORA: https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.2_x86_64.rpm
 
-- Ajustar la memoria a ser usada por cada VM a lo que se adapte a sus recursos disponibles, Donde pone en el fichero Vagrantfile:
-
+- Ajustar la memoria a ser usada por cada VM a lo que se adapte a sus recursos disponibles, en:
 vb.customize ["modifyvm", :id, "--memory", "2048", "--name", "#{vm_name}"]
 Cambiar el 2048 por algo más ajustado por ejemplo 768/1024 en cada VM
 
