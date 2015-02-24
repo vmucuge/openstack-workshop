@@ -33,6 +33,7 @@ Vagrant.configure("2") do |config|
     rdonode01.vm.hostname = "rdo-node01.test.vm"
     rdonode01.vm.network :private_network, ip: "192.168.33.20"
     rdonode01.vm.provision :shell, :path => "files/vg.sh"
+    rdonode01.vm.provision :shell, :path => "files/set_rsa.sh"
     rdonode01.vm.provision :shell, :path => "files/bootstrap.sh"
     rdonode01.vm.provision :puppet do |puppet|
       puppet.manifests_path = "manifests"
@@ -56,6 +57,7 @@ Vagrant.configure("2") do |config|
 
     rdonode02.vm.hostname = "rdo-node02.test.vm"
     rdonode02.vm.network :private_network, ip: "192.168.33.21"
+    rdonode02.vm.provision :shell, :path => "files/set_rsa.sh"
     rdonode02.vm.provision :shell, :path => "files/bootstrap.sh"
 
     rdonode02.vm.provision :puppet do |puppet|
