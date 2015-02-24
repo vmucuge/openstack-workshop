@@ -18,24 +18,23 @@ cinder_volume = "/tmp/cinder_volume.vdi"
 
 
 - Spin up the VMs
-
+```bash
 $ vagrant up rdonode02
-
 $ vagrant up rdonode01
-
+```
 - Restart VMs (after upgrade)
-
+```bash
 $ vagrant reload
-
+```
 - SSH to rdonode01
-
+```bash
 $ vagrant ssh rdonode01
-
+```
 - Run commands
-
+```bash
 $ sudo -i
-
- # packstack --answer-file=/vagrant/files/packstack-vagrant.txt
+# packstack --answer-file=/vagrant/files/packstack-vagrant.txt
+```
 
 !! Good Luck, if you finally see something like this:
 
