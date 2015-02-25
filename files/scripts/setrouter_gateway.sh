@@ -1,6 +1,6 @@
 #!/bin/bash
 if [[ -z $1 && -z $2 ]] ; then
-  echo "Usage $0 extrouter_A net_A"  
+  echo "Usage $0 extrouter_A extnet_A"  
   exit 1
 fi
 
